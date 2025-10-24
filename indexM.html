@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumit Kumar-Modal</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="shortcut icon" href="/JavaScript/Modal/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/2-Modal/Script.js">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="theme-toggle" class="theme-toggle-button">
+        <span>☀️</span>
+    </button>
+    <div style="overflow: hidden;">
+        <div class="red-circle"></div>
+        <div class="blue-circle"></div>
+        <div class="card-container">
+            <img src="./Confident Portrait in Blue Tones.jpg" alt="user">
+            <h2>Sumit Kumar</h2>
+            <p>Aspiring Software Engineer</p>
+            <div class="button-container">
+                <button onclick="OpenModal()">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Share My Profile</span>
+                </button>
+                <button>
+                    <a href="https://s-umitkumar.github.io/" target="_blank" rel="noopener noreferrer">My Portfolio</a>
+                </button>
+            </div>
+        </div>
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Share My Profile</h2>
+                <button onclick="CloseModal()">X</button>
+            </div>
+            <p>Share this Via</p>
+            <div>
+                <div class="icon-container">
+                    <a href="https://whatsapp.com" class="icon" id="whatsapp" rel="noopener noreferrer" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com" class="icon" id="instagram" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.x.com" class="icon" id="x" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-x"></i>
+                    </a>
+                    <a href="https://www.github.com" class="icon" id="github" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.facebook.com" class="icon" id="facebook" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="overlay" onclick="CloseModal()"></div>
+    </div>
+    <script src="https://kit.fontawesome.com/d65336f122.js" crossorigin="anonymous"></script>
+    <script src="/2-Modal/Script.js"></script>
+</body>
+</html>

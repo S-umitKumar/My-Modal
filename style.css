@@ -1,0 +1,350 @@
+/* --- DARK THEME VARIABLES --- */
+:root {
+    --background-color-dark: #121212;
+    --text-color-dark: #e0e0e0;
+    --card-background-dark: rgba(245, 242, 242, 0.19);
+    --card-border-dark: 1px solid rgba(255, 255, 255, 0.5);
+    --modal-background-dark: #00000088;
+    --modal-border-dark: 1px solid rgba(255, 255, 255, 0.5);
+    --button-bg-dark: transparent;
+    --button-border-dark: 1px solid rgba(255, 255, 255, 0.7);
+    --button-text-dark: #ffffff;
+    --heading-color-dark: #ffffff;
+    --subheading-color-dark: rgba(247, 243, 243, 0.9);
+    --circle-red-dark: rgba(204, 68, 68, 0.954);
+    --circle-blue-dark: rgba(178, 78, 236, 0.954);
+}
+
+/* --- LIGHT THEME VARIABLES --- */
+body.light-mode {
+    --background-color-light: #f5f7fa;
+    --text-color-light: #333333;
+    --card-background-light: #ffffff;
+    --card-border-light: none;
+    --card-shadow-light: 0 8px 30px rgba(0, 0, 0, 0.1);
+    --modal-background-light: rgba(255, 255, 255, 0.95);
+    --modal-border-light: 1px solid rgba(0, 0, 0, 0.1);
+    --button-bg-light: #4a4a4a;
+    --button-border-light: none;
+    --button-text-light: #ffffff;
+    --button-hover-light: #666666;
+    --heading-color-light: #2c3e50;
+    --subheading-color-light: #7f8c8d;
+    --circle-red-light: rgba(170, 204, 255, 0.6); /* Soft blue */
+    --circle-blue-light: rgba(255, 204, 204, 0.6); /* Soft pink */
+    --link-color-light: #2980b9;
+}
+
+/* --- BASE STYLES (Dark Mode by default) --- */
+body {
+    background-color: var(--background-color-dark);
+    position: relative;
+    overflow-y: hidden;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text-color-dark);
+    transition: background-color 0.5s ease;
+}
+
+.red-circle {
+    background-color: var(--circle-red-dark);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: absolute;
+    left: 500px;
+    top: 30px;
+    box-shadow: 0 0 15px 10px var(--circle-red-dark);
+    animation: redcircle 4s 1s infinite alternate;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+@keyframes redcircle {
+    0% {
+        left: 500px;
+    }
+    100% {
+        left: 530px;
+        width: 160px;
+        height: 160px;
+    }
+}
+
+.blue-circle {
+    background-color: var(--circle-blue-dark);
+    width: 200px;
+    height: 200px;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 450px;
+    left: 880px;
+    box-shadow: 0 0 15px 10px var(--circle-blue-dark);
+    animation: bluecircle 4s 1s infinite alternate;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+@keyframes bluecircle {
+    0% {
+        left: 880px;
+    }
+    100% {
+        left: 925px;
+        width: 210px;
+        height: 210px;
+    }
+}
+
+.card-container {
+    background: var(--card-background-dark);
+    position: absolute;
+    top: 130px;
+    left: 650px;
+    width: 320px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: var(--card-border-dark);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: background-color 0.5s ease, border 0.5s ease, box-shadow 0.5s ease;
+}
+
+.card-container img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    display: block;
+}
+
+.card-container h2 {
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: var(--heading-color-dark);
+    transition: color 0.5s ease;
+}
+
+.card-container p {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    color: var(--subheading-color-dark);
+    transition: color 0.5s ease;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.button-container button {
+    background-color: var(--button-bg-dark);
+    color: var(--button-text-dark);
+    border: var(--button-border-dark);
+    width: 100%;
+    height: 35px;
+    cursor: pointer;
+    font-family: cursive;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+    text-align: center;
+    flex: 1;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.button-container button a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.modal {
+    z-index: 1;
+    scale: 0;
+    width: 420px;
+    height: 210px;
+    background-color: var(--modal-background-dark);
+    color: var(--text-color-dark);
+    position: fixed;
+    top: 210px;
+    left: 600px;
+    border: var(--modal-border-dark);
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    transition: 0.4s ease-out, background-color 0.5s, border 0.5s;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.active {
+    scale: 1;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    align-items: center;
+    transition: border-color 0.5s ease;
+}
+
+.modal-header button {
+    background-color: transparent;
+    border: none;
+    color: var(--button-text-dark);
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.5s ease;
+}
+
+.modal p {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--subheading-color-dark);
+    margin-top: 20px;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    color: #333333;
+    margin: 5px;
+    font-size: 24px;
+    transition: 0.3s;
+}
+
+.icon:hover {
+    background: #c0c0c0;
+    color: #111111;
+}
+
+.overlay {
+    background-color: #5f5f5f83;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s ease-in-out;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.overlayactive {
+    opacity: 1;
+    pointer-events: initial;
+}
+
+.icon img {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 50%;
+}
+
+/* --- LIGHT MODE SPECIFIC STYLES --- */
+body.light-mode {
+    background-color: var(--background-color-light);
+}
+
+body.light-mode .red-circle {
+    background-color: var(--circle-red-light);
+    box-shadow: 0 0 20px 15px var(--circle-red-light);
+}
+
+body.light-mode .blue-circle {
+    background-color: var(--circle-blue-light);
+    box-shadow: 0 0 20px 15px var(--circle-blue-light);
+}
+
+body.light-mode .card-container {
+    background: var(--card-background-light);
+    border: var(--card-border-light);
+    box-shadow: var(--card-shadow-light);
+}
+
+body.light-mode .card-container h2 {
+    color: var(--heading-color-light);
+}
+
+body.light-mode .card-container p {
+    color: var(--subheading-color-light);
+}
+
+body.light-mode .button-container button {
+    background-color: var(--button-bg-light);
+    border: var(--button-border-light);
+    color: var(--button-text-light);
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+body.light-mode .button-container button:hover {
+    background-color: var(--button-hover-light);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .button-container button a {
+    color: var(--button-text-light);
+}
+
+body.light-mode .modal {
+    background-color: var(--modal-background-light);
+    border: var(--modal-border-light);
+    color: var(--text-color-light);
+}
+
+body.light-mode .modal-header {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .modal-header button {
+    color: var(--text-color-light);
+}
+
+body.light-mode .modal p {
+    color: var(--subheading-color-light);
+}
+
+body.light-mode .icon {
+    background: #e0e0e0;
+    color: #666;
+}
+
+body.light-mode .icon:hover {
+    background: #c2c2c2;
+    color: #333;
+}
